@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/recipe_main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/watermelon"
+    tools:context="edu.slu.cs.recipefinder.RecipeMain">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:text="Reciperfect!"
+        android:id="@+id/welcome"
+        android:layout_centerHorizontal="true"
+        android:fontFamily="cursive"
+        android:textStyle="bold"
+        android:textColor="#fff"
+        android:textSize="200px"/>
+
+
+    <Button
+        android:text="SEARCH"
+        android:id="@+id/search"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#d21f3c"
+        android:textColor="#fff"
+        android:textSize="50px"
+        android:layout_alignParentBottom="true"
+        android:layout_centerInParent="true"/>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:id="@+id/layout1"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/exclude"
+        android:gravity="center">
+        <ProgressBar
+            android:id="@+id/progressBar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:indeterminate="true"
+            android:layout_centerInParent="true"
+            android:visibility="gone" />
+        <ScrollView
+            android:layout_width="fill_parent"
+            android:layout_centerInParent="true"
+            android:layout_height="match_parent">
+            <TextView
+                android:id="@+id/responseView"
+                android:layout_centerInParent="true"
+                android:textColor="#000"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+        </ScrollView>
+
+        <ListView
+            android:id="@+id/list_recipe"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAlignment="center"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentLeft="true"/>
+
+    </RelativeLayout>
+
+    <EditText
+        android:id="@+id/exclude"
+        android:hint="E X C L U D E"
+        android:textAlignment="center"
+        android:textStyle="bold"
+        android:textColorHint="#d21f3c"
+        android:backgroundTint="#000"
+        android:textColor="#d21f3c"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/picked"
+        android:layout_alignStart="@+id/picked"
+        android:layout_alignLeft="@+id/picked"
+        android:layout_marginStart="10dp"
+        android:layout_marginLeft="10dp"/>
+
+    <EditText
+        android:id="@+id/include"
+        android:textColorHint="#d21f3c"
+        android:hint="I N C L U D E"
+        android:backgroundTint="#000"
+        android:textAlignment="center"
+        android:textStyle="bold"
+        android:textColor="#d21f3c"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/picked"
+        android:layout_alignEnd="@+id/picked"
+        android:layout_alignRight="@+id/picked"
+        android:layout_marginEnd="7dp"
+        android:layout_marginRight="7dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:id="@+id/picked"
+        android:layout_height="wrap_content"
+        android:textColor= "#fff"
+        android:text="T Y P E I N Y O U R P R E F E R E N C E S"
+        android:fontFamily="sans-serif-smallcaps"
+        android:textSize="75px"
+        android:layout_below="@+id/welcome"
+        android:layout_centerHorizontal="true" />
+
+
+</RelativeLayout>

@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:background="@drawable/watermelon"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:layout_marginBottom="20dp"
+        android:textAlignment="center"
+        android:id="@+id/title"
+        android:layout_centerHorizontal="true"
+        android:fontFamily="cursive"
+        android:textStyle="bold"
+        android:textColor="#fff"
+        android:textSize="110px"/>
+
+    <Button
+        android:id="@+id/check_button"
+        android:layout_width="152dp"
+        android:textColor="#fff"
+        android:layout_height="wrap_content"
+        android:text="Next"
+        android:background="#d21f3c"
+        style="@style/Base.Widget.AppCompat.Button.Borderless"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_alignBaseline="@+id/view_button"
+        android:layout_alignBottom="@+id/view_button"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginEnd="32dp" />
+
+    <Button
+        android:id="@+id/view_button"
+        android:layout_width="152dp"
+        android:layout_height="wrap_content"
+        android:text="Back"
+        android:textColor="#fff"
+        style="@style/Base.Widget.AppCompat.Button.Borderless"
+        android:background="#d21f3c"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginBottom="10dp"
+        android:layout_alignParentBottom="true"
+        android:layout_toStartOf="@+id/check_button"
+        android:layout_toLeftOf="@+id/check_button"
+        android:layout_marginEnd="36dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/instruction_title"
+        android:fontFamily="cursive"
+        android:textStyle="bold"
+        android:text="Instructions"
+        android:layout_margin="20dp"
+        android:textColor="#fff"
+        android:textSize="90px"
+        android:layout_marginStart="6dp"
+        android:layout_marginLeft="6dp"
+        android:layout_above="@+id/scroll1"
+        android:layout_alignStart="@+id/view_button"
+        android:layout_alignLeft="@+id/view_button"/>
+
+    <ScrollView
+        android:layout_width="fill_parent"
+        android:layout_height="220dp"
+        android:id="@+id/scroll1"
+        android:layout_above="@+id/check_button"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="60px"
+            android:layout_centerInParent="true"
+            android:textColor="#000"
+            android:layout_margin="10dp"
+            android:id="@+id/instruction"
+            />
+    </ScrollView>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Ingredients"
+        android:id="@+id/ingredients_title"
+        android:fontFamily="cursive"
+        android:textStyle="bold"
+        android:textColor="#fff"
+        android:textSize="90px"
+        android:layout_marginStart="6dp"
+        android:layout_marginLeft="6dp"
+        android:layout_alignStart="@+id/view_button"
+        android:layout_alignLeft="@+id/view_button"
+        android:layout_below="@+id/title" />
+
+    <ScrollView
+        android:layout_width="fill_parent"
+        android:layout_height="150dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/checklist_button"
+        android:layout_above="@+id/instruction_title">
+        <TextView
+            android:layout_width="wrap_content"
+            android:id="@+id/ingredients"
+            android:textColor="#000"
+            android:textSize="60px"
+            android:layout_margin="10dp"
+            android:layout_below="@+id/view_button"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            />
+    </ScrollView>
+
+    <Button
+        android:layout_width="153dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/checklist_button"
+        android:text="GET GROCERY LIST"
+        android:background="#d21f3c"
+        style="@style/Base.Widget.AppCompat.Button.Borderless"
+        android:textColor="#fff"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginStart="16dp"
+        android:layout_alignBaseline="@+id/ingredients_title"
+        android:layout_alignBottom="@+id/ingredients_title"
+        android:layout_toEndOf="@+id/view_button"
+        android:layout_toRightOf="@+id/view_button"/>
+
+
+</RelativeLayout>
