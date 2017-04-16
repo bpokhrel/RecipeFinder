@@ -1,0 +1,67 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@drawable/watermelon"
+    android:clickable="false"
+    android:descendantFocusability="blocksDescendants"
+    android:focusable="false"
+    android:focusableInTouchMode="false"
+    android:orientation="vertical" >
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:text="Grocery: To Buy"
+        android:id="@+id/welcome"
+        android:layout_centerHorizontal="true"
+        android:fontFamily="cursive"
+        android:textStyle="bold"
+        android:textColor="#fff"
+        android:textSize="140px"/>
+
+    <Button
+        android:id="@+id/clear"
+        android:layout_width="152dp"
+        android:layout_height="wrap_content"
+        android:text="CLEAR"
+        android:textColor="#fff"
+        style="@style/Base.Widget.AppCompat.Button.Borderless"
+        android:background="#d21f3c"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_below="@+id/listView1"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginEnd="33dp" />
+
+    <Button
+        android:id="@+id/back_button"
+        android:layout_width="152dp"
+        android:layout_height="wrap_content"
+        android:text="Back"
+        android:textColor="#fff"
+        style="@style/Base.Widget.AppCompat.Button.Borderless"
+        android:background="#d21f3c"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginBottom="13dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_marginStart="36dp" />
+
+    <ListView
+        android:id="@+id/listView1"
+        android:textAlignment="center"
+        android:layout_marginTop="40dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_above="@+id/back_button"
+        android:layout_below="@+id/welcome">
+    </ListView>
+
+
+</RelativeLayout>

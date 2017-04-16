@@ -33,21 +33,21 @@ public class RecipeViewFragment extends Fragment {
     String grocery_name;
     TextView ingredients, instructions;
 
-//    public interface OnDataPass1 {
-//        public void onDataPass1(String data);
-//    }
-//
-//    OnDataPass1 dataPasser1;
-//
-//    @Override
-//    public void onAttach(Activity activity) {
-//        super.onAttach(activity);
-//        try {
-//            dataPasser1 = (OnDataPass1) activity;
-//        } catch (ClassCastException e) {
-//            throw new ClassCastException(activity.toString() + " must implement OnDataPass.");
-//        }
-//    }
+    public interface OnDataPass1 {
+        public void onDataPass1(String data);
+    }
+
+    OnDataPass1 dataPasser1;
+
+    @Override
+    public void onAttach(Activity activity) {
+        super.onAttach(activity);
+        try {
+            dataPasser1 = (OnDataPass1) activity;
+        } catch (ClassCastException e) {
+            throw new ClassCastException(activity.toString() + " must implement OnDataPass.");
+        }
+    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup parent, Bundle savedInstanceState) {
@@ -72,13 +72,13 @@ public class RecipeViewFragment extends Fragment {
             }
         });
 
-//        checkListButton.setOnClickListener(new View.OnClickListener() {
-//            public void onClick(View v) {
-//                _activity.getList=true;
-//                dataPasser1.onDataPass1(grocery_name);
-//                _activity.switchFragment("check list");
-//            }
-//        });
+        checkListButton.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                _activity.getList=true;
+                dataPasser1.onDataPass1(grocery_name);
+                _activity.switchFragment("check list");
+            }
+        });
 
         new RetrieveFeedTask().execute();
         return view;
