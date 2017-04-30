@@ -5,13 +5,16 @@ import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 import android.os.Bundle;
 
-public class RecipeMain extends FragmentActivity implements RecipeListFragment.OnDataPass,RecipeViewFragment.OnDataPass1{
+public class RecipeMain extends FragmentActivity implements RecipeListFragment.OnDataPass,RecipeViewFragment.OnDataPass1,
+LoginActivityFragment.OnDataPass2 {
     RecipeListFragment _recipeListFragment;
     RecipeViewFragment _recipeViewFragment;
     CheckListFragment _checkListFragment;
-//    SQLiteDatabase _db;
+    LoginActivityFragment _loginFrag;
+    RegisterActivityFragment _registerFrag;
+    SQLiteDatabase _db;
     int recipe_id;
-//    public static final String PREFS_NAME = "MyPrefsFile";
+    public static final String PREFS_NAME = "MyPrefsFile";
     String title;
     boolean delete = false;
     boolean getList = false;
@@ -35,13 +38,17 @@ public class RecipeMain extends FragmentActivity implements RecipeListFragment.O
             _checkListFragment.setActivity(this);
         }
 
-//        if(_profileFrag == null){
-//            _profileFrag = new ProfileFrag();
-//            _profileFrag.setActivity(this);
-//        }
+        if (_loginFrag == null) {
+            _loginFrag = new LoginActivityFragment();
+            _loginFrag.setActivity(this);
+        }
+        if (_registerFrag == null) {
+            _registerFrag = new RegisterActivityFragment();
+            _registerFrag.setActivity(this);
+        }
         // Add the initial fragment
         FragmentManager fm = getSupportFragmentManager();
-        fm.beginTransaction().add(R.id.activity_recipe_main, _recipeListFragment).commit();
+        fm.beginTransaction().add(R.id.activity_recipe_main, _loginFrag).commit();
     }
 
     public void switchFragment(String newFragment) {
@@ -53,12 +60,18 @@ public class RecipeMain extends FragmentActivity implements RecipeListFragment.O
         } else if (newFragment == "recipe list") {
             FragmentManager fm = getSupportFragmentManager();
             fm.beginTransaction().replace(R.id.activity_recipe_main, _recipeListFragment).commit();
-        }else if(newFragment=="check list"){
-            FragmentManager fm=getSupportFragmentManager();
-            fm.beginTransaction().replace(R.id.activity_recipe_main,_checkListFragment).commit();
+        } else if (newFragment == "check list") {
+            FragmentManager fm = getSupportFragmentManager();
+            fm.beginTransaction().replace(R.id.activity_recipe_main, _checkListFragment).commit();
+        } else if (newFragment == "recipe login") {
+            FragmentManager fm = getSupportFragmentManager();
+            fm.beginTransaction().replace(R.id.activity_recipe_main, _loginFrag).commit();
+        } else if (newFragment == "recipe register") {
+            FragmentManager fm = getSupportFragmentManager();
+            fm.beginTransaction().replace(R.id.activity_recipe_main, _registerFrag).commit();
         }
 
-        }
+    }
 
     public void onDataPass(String data) {
         Bundle args = new Bundle();
@@ -67,6 +80,7 @@ public class RecipeMain extends FragmentActivity implements RecipeListFragment.O
         switchFragment("recipe view");
 
     }
+
     public void onDataPass1(String data) {
         Bundle args = new Bundle();
         args.putString(CheckListFragment.DATA_RECEIVE1, data);
@@ -81,8 +95,15 @@ public class RecipeMain extends FragmentActivity implements RecipeListFragment.O
         _checkListFragment.setArguments(args);
     }
 
+    public void onDataPass2(String data) {
+        Bundle args = new Bundle();
+        args.putString(RecipeListFragment.DATA_RECEIVE2, data);
+        _recipeListFragment.setArguments(args);
+        switchFragment("recipe list");
+
 
     }
+}
 
 
 

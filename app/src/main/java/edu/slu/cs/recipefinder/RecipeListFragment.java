@@ -1,6 +1,7 @@
 package edu.slu.cs.recipefinder;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -40,6 +41,12 @@ public class RecipeListFragment  extends Fragment {
     EditText exclude,include;
     ArrayList<String> ingredient_Title;
     ArrayList<Integer> ingredient_ID;
+    private static final String TAG = "UserActivity";
+    final static String DATA_RECEIVE2 = "data_receive2";
+
+    private TextView greetingTextView;
+    private Button btnLogOut;
+
     public interface OnDataPass {
         public void onDataPass(String data);
     }
@@ -54,6 +61,21 @@ public class RecipeListFragment  extends Fragment {
             throw new ClassCastException(activity.toString() + " must implement OnDataPass.");
         }
     }
+
+    @Override
+    public void onStart() {
+        super.onStart();
+        Bundle args = getArguments();
+        if (args != null) {
+          String user=args.getString(DATA_RECEIVE2);
+            greetingTextView.setText("Hello "+user);
+//            args.getStringArrayList(DATA_RECEIVE2);
+//            greetingTextView.setText("Hello "+ user);
+
+        }
+    }
+
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup parent, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.list_fragment, parent, false);
@@ -63,6 +85,26 @@ public class RecipeListFragment  extends Fragment {
         progressBar = (ProgressBar) view.findViewById(R.id.progressBar);
         responseView = (TextView) view.findViewById(R.id.responseView);
         final Button search = (Button) view.findViewById(R.id.search);
+        btnLogOut = (Button) view.findViewById(R.id.logout_button);
+        Bundle bundle=new Bundle();
+
+        String user=bundle.getString("username");
+
+//        Bundle bundle = this.getArguments();
+//        String user = bundle.getString("username");
+        greetingTextView = (TextView) view.findViewById(R.id.greeting_text_view);
+        greetingTextView.setText("Hello "+ user);
+
+        // Progress dialog
+        btnLogOut.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+//                Intent i = new Intent(getContext(), LoginActivityFragment.class);
+//                startActivity(i);
+                _activity.switchFragment("recipe login");
+            }
+        });
+
         search.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
